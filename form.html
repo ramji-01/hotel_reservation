@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hotel</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/4.8.2/firebase-auth.js"></script>
+        <title>Restaurant</title>
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css" media="screen" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Playball' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/style-portfolio.css">
+        <link rel="stylesheet" href="css/picto-foundry-food.css">
+        <link rel="stylesheet" href="css/jquery-ui.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link rel="icon" href="favicon-1.ico" type="image/x-icon">
+		<script src="https://www.gstatic.com/firebasejs/8.4.2/firebase.js"></script>
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase-auth.js"></script>
+</head>
+
+
+<style>
+	a {
+    font-size: 16px;
+    color: white;
+	text-decoration: none;
+	}
+</style>
+
+<body>
+
+
+<!-- ============ Reservation  ============= -->
+
+        <section  id="reservation"  class="description_content">
+            <div class="featured background_content">
+                <h1>Reserve a Table!</h1>
+            </div>
+            <div class="text-content container"> 
+                <div class="inner contact">
+                    <!-- Form Area -->
+                    <div class="contact-form">
+                            <!-- Left Inputs -->
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-8 col-md-6 col-xs-12">
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6 col-xs-6">
+                                                <!-- Name -->
+                                                <input type="text" name="first_name" id="first_name" required="required" class="form" placeholder="First Name" />
+                                                <input type="text" name="last_name" id="last_name" required="required" class="form" placeholder="Last Name" />
+                                                <input type="text" name="state" id="state" required="required" class="form" placeholder="State" />
+                                                <input type="text" name="date" id="date" required="required" class="form" placeholder="Reservation Date" />
+                                            </div>
+
+                                            <div class="col-lg-6 col-md-6 col-xs-6">
+                                                <!-- Name -->
+                                                <input type="text" name="phone" id="phone" required="required" class="form" placeholder="Phone" />
+                                                <input type="text" name="guest" id="guest" required="required" class="form" placeholder="Guest Number" />
+                                                <input type="email" name="email" id="email" required="required" class="form" placeholder="Email" />
+                                                <input type="text" name="subject" id="subject" required="required" class="form" placeholder="Subject" />
+                                            </div>
+
+                                            <div class="col-xs-6 ">
+                                                <!-- Send Button -->
+                                                <button type="submit" id="submit" name="submit" class="text-center form-btn form-btn" onclick="submitClick()">Reserve</button> 
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-xs-6">
+												<button type="View Booked Order History" id="history" name="history" class="text-center form-btn form-btn"><a href="table.html">View Ordered History</a></button>
+											</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-lg-4 col-md-6 col-xs-12">
+                                        <!-- Message -->
+                                        <div class="right-text">
+                                            <h2>Hours</h2><hr>
+                                            <p>Monday to Friday: 7:30 AM - 11:30 AM</p>
+                                            <p>Saturday & Sunday: 8:00 AM - 9:00 AM</p>
+                                            <p>Monday to Friday: 12:00 PM - 5:00 PM</p>
+                                            <p>Monday to Saturday: 6:00 PM - 1:00 AM</p>
+                                            <p>Sunday to Monday: 5:30 PM - 12:00 AM</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Clear -->
+                            <div class="clear"></div>
+                        </form>
+                    </div><!-- End Contact Form Area -->
+                </div><!-- End Inner -->
+            </div>
+        </section>
+		
+		
+				<!-- The core Firebase JS SDK is always required and must be listed first -->
+		<script src="https://www.gstatic.com/firebasejs/8.4.0/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.4.0/firebase-database.js"></script>
+
+		<!-- TODO: Add SDKs for Firebase products that you want to use
+		https://firebase.google.com/docs/web/setup#available-libraries -->
+		<script src="https://www.gstatic.com/firebasejs/8.4.0/firebase-analytics.js"></script>
+
+		<script>
+		// Your web app's Firebase configuration
+		// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+		var firebaseConfig = {
+			apiKey: "AIzaSyCA34h3SwPvf5dPUxsExf05W0qwKzaDR6s",
+			authDomain: "reservation-74e12.firebaseapp.com",
+			databaseURL: "https://reservation-74e12-default-rtdb.firebaseio.com",
+			projectId: "reservation-74e12",
+			storageBucket: "reservation-74e12.appspot.com",
+			messagingSenderId: "822665539583",
+			appId: "1:822665539583:web:61f1b200eb29050ee501ca",
+			measurementId: "G-56Y98GX3LS"
+		};
+		// Initialize Firebase
+		firebase.initializeApp(firebaseConfig);
+		firebase.analytics();
+		</script>
+		
+
+		<script src="./functions.js"> </script>
+        <script type="text/javascript" src="js/jquery-1.10.2.min.js"> </script>
+        <script type="text/javascript" src="js/bootstrap.min.js" ></script>
+        <script type="text/javascript" src="js/jquery-1.10.2.js"></script>     
+        <script type="text/javascript" src="js/jquery.mixitup.min.js" ></script>
+        <script type="text/javascript" src="js/main.js" ></script>
+
+		
+		
+		
+    </body>
+</html>
+	

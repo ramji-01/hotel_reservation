@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Map</title>
+	<meta name="viewport" content="initial-scale1.0">
+	<meta charset="utf-8">
+	<style>
+		#map {
+			height: 100%;
+		}
+		html,body {
+			height: 100%;
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+  </head>
+  <body>
+    <div id="map"></div>
+	<script>
+		var map;
+		function initMap() {
+		map = new google.maps.Map(document.getElementById('map'), {
+			center: {lat: 9.9252, lng: 78.1198},
+			zoom: 14
+		});
+		const marker1 = new google.maps.Marker({
+			position:{lat: 9.9207,lng: 78.1124},
+			map:map
+		})
+		
+		const marker2 = new google.maps.Marker({
+			position:{lat: 9.9210,lng: 78.1119},
+			map:map
+		})
+		
+		const marker3 = new google.maps.Marker({
+			position:{lat: 9.9413,lng: 78.1301},
+			map:map
+		})
+		
+		const marker4 = new google.maps.Marker({
+			position:{lat: 9.9247,lng: 78.1234},
+			map:map
+		})
+		
+		const detailWindow1 = new google.maps.InfoWindow({
+			content: `<h2>Hotel Supreme</h2>`
+		});
+		
+		const detailWindow2 = new google.maps.InfoWindow({
+			content: `<h2>Hotel Royal Court</h2>`
+		});
+		
+		const detailWindow3 = new google.maps.InfoWindow({
+			content: `<h2>Hotel Royal Elite</h2>`
+		});
+		
+		const detailWindow4 = new google.maps.InfoWindow({
+			content: `<h2>Hotel President</h2>`
+		});
+		
+		marker1.addListener("mouseover",() =>{
+			detailWindow1.open(map, marker1);
+		})
+		
+		marker2.addListener("mouseover",() =>{
+			detailWindow2.open(map, marker2);
+		})
+		
+		marker3.addListener("mouseover",() =>{
+			detailWindow3.open(map, marker3);
+		})
+		
+		marker4.addListener("mouseover",() =>{
+			detailWindow4.open(map, marker4);
+		})
+		
+	}
+  </script>
+  <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRBPc4NwlVYZWI58H8ZoNFmwYr6iRG8Rc&callback=initMap&libraries=&v=weekly" async defer></script>    
+  </body>
+</html>
